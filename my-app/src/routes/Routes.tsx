@@ -1,22 +1,26 @@
-// routes.tsx
-import { IRoute } from "../IRoute";
-import MainRout from "../MainLayout/MainRout";
+import { createBrowserRouter } from "react-router-dom";
+import App from "../App";
 import Home from "../Components/Home";
 import About from "../Components/About";
+import NotFound from "../Components/NotFound";
 
-export const routes: Array<IRoute> = [
+export const router = createBrowserRouter([
   {
-    path: '/',
-    element: <MainRout />,
+    path: "",
+    element: <App />,
     children: [
       {
-        path: '', // Ana sayfa için
+        path: "",
         element: <Home />,
       },
       {
-        path: 'about',
+        path: "about",
         element: <About />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },
-];
+]);

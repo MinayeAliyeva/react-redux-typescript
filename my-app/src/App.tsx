@@ -1,13 +1,17 @@
-// app.tsx
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+// App.tsx
+import React from "react";
+import Header from "./layout/Header";
+import { Outlet } from "react-router-dom";
+import Footer from "./layout/Footer";
+
 
 const App: React.FC = () => {
   return (
-    <div>
-      <h1>App Component</h1>
-      <Outlet />
-    </div>
+ <>
+ <Header/>
+ <Outlet/>
+ <Footer/>
+ </>
   );
 };
 

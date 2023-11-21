@@ -1,22 +1,20 @@
-// index.tsx
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { RouterProvider } from 'react-router-dom';
-import { routes } from './routes/Routes';
-import { createBrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { router } from "./Routes/Routes";
 
-type CustomRouterType = ReturnType<typeof createBrowserRouter>;
-const router: CustomRouterType = createBrowserRouter(routes);
-
-ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-).render(
-  <RouterProvider router={router}>
-    <App />
-  </RouterProvider>
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
 );
+
+
+root.render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
+
 
 reportWebVitals();
