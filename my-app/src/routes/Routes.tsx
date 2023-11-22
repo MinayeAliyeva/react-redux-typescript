@@ -1,10 +1,20 @@
-import { createBrowserRouter } from "react-router-dom";
+import { RouteObject, createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../Components/Home";
 import About from "../Components/About";
 import NotFound from "../Components/NotFound";
 
-export const router = createBrowserRouter([
+// interface IRoute {
+//   index: string;
+// }
+// let x: IRoute["index"] = "jjj";
+// const obj = {
+//   index: 5,
+// };
+// let z = obj["index"];
+
+
+const routes:RouteObject[] = [
   {
     path: "",
     element: <App />,
@@ -23,4 +33,6 @@ export const router = createBrowserRouter([
       },
     ],
   },
-]);
+];
+
+export const router = createBrowserRouter(routes);
