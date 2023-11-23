@@ -35,4 +35,5 @@ const routes:RouteObject[] = [
   },
 ];
 
+//createBrowserRouter iki parametr alir birincisi budu
 export const router = createBrowserRouter(routes);
