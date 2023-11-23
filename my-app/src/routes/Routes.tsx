@@ -3,6 +3,8 @@ import App from "../App";
 import Home from "../Components/Home";
 import About from "../Components/About";
 import NotFound from "../Components/NotFound";
+import Users from "../Components/Users";
+import User from "../Components/User";
 
 // interface IRoute {
 //   index: string;
@@ -26,6 +28,16 @@ const routes:RouteObject[] = [
       {
         path: "about",
         element: <About />,
+      },
+      {
+        path: "users",
+        element: <Users />,
+        children:[
+        {
+          path:":id",
+          element:<User/>
+        }
+        ]
       },
       {
         path: "*",

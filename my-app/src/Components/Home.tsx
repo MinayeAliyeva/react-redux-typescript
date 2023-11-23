@@ -81,7 +81,7 @@ const Home = () => {
           <Col></Col>
         </Row>
       </Container>
-      <Users />
+      {/* <Users /> */}
     </section>
   );
 };
