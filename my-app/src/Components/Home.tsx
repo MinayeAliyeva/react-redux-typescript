@@ -5,7 +5,29 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Users from "./Users";
+import { useState } from "react";
+
 const Home = () => {
+  interface state {
+    name: string;
+    age: number;
+  }
+  const initialState: state = {
+    name: "",
+    age: 0,
+  };
+  const [state, setState] = useState(initialState);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+  };
   return (
     <section>
       <Container>
@@ -19,6 +41,10 @@ const Home = () => {
                   placeholder="User name"
                   aria-label="Username"
                   aria-describedby="basic-addon1"
+                  name="name"
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    handleChange(e)
+                  }
                 />
               </InputGroup>
               <InputGroup className="mb-3">
@@ -27,23 +53,29 @@ const Home = () => {
                   placeholder="Age"
                   aria-label="Username"
                   aria-describedby="basic-addon1"
+                  name="age"
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    handleChange(e)
+                  }
                 />
               </InputGroup>
-              <InputGroup className="mb-3">
+              {/* <InputGroup className="mb-3">
                 <Form.Control
                   type="file"
                   placeholder="Username"
                   aria-label="Username"
                   aria-describedby="basic-addon1"
                 />
-              </InputGroup>
-              <Button variant="primary">Submit</Button>{" "}
+              </InputGroup> */}
+              <Button onSubmit={handleSubmit} variant="primary">
+                Submit
+              </Button>{" "}
             </form>
           </Col>
           <Col></Col>
         </Row>
       </Container>
-      <Users/>
+      <Users />
     </section>
   );
 };
