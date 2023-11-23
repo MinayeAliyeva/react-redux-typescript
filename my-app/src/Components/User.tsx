@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 const User = () => {
   interface state {
     name: string;
@@ -19,6 +19,7 @@ const User = () => {
               <h1>{course.age}</h1>
               <h1>{course.id}</h1>
             </div>
+             
           );
         })}
     </>
