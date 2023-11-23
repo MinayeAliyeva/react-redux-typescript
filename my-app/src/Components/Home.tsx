@@ -1,21 +1,11 @@
-import React, { useState } from "react";
-import "../App.css";
+import React from 'react'
 
-const Home: React.FC = () => {
-  interface FormData {
-    name: string;
-    age: number;
-  }
-  const initialState: FormData = {
-    name: "",
-    age: 0,
-  };
-
+const Home = () => {
   return (
     <>
-
+    
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
