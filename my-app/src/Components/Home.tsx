@@ -6,8 +6,13 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Users from "./Users";
 import { useState } from "react";
-
+import { addCourse } from "../store/slices/FormSlice";
+import { useDispatch, useSelector } from "react-redux";
+//
+//
 const Home = () => {
+
+  const dispatch = useDispatch();
   interface state {
     name: string;
     age: number;
@@ -26,7 +31,8 @@ const Home = () => {
   };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+    console.log("k");
+    dispatch(addCourse(state));
   };
   return (
     <section>
@@ -67,7 +73,7 @@ const Home = () => {
                   aria-describedby="basic-addon1"
                 />
               </InputGroup> */}
-              <Button onSubmit={handleSubmit} variant="primary">
+              <Button onClick={(e) => handleSubmit(e)} variant="primary">
                 Submit
               </Button>{" "}
             </form>
