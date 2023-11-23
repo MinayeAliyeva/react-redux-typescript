@@ -5,6 +5,7 @@ import About from "../Components/About";
 import NotFound from "../Components/NotFound";
 import Users from "../Components/Users";
 import User from "../Components/User";
+import UserInfoOutlet from "../Components/UsersInfoOutlet";
 
 // interface IRoute {
 //   index: string;
@@ -15,8 +16,7 @@ import User from "../Components/User";
 // };
 // let z = obj["index"];
 
-
-const routes:RouteObject[] = [
+const routes: RouteObject[] = [
   {
     path: "",
     element: <App />,
@@ -31,13 +31,17 @@ const routes:RouteObject[] = [
       },
       {
         path: "users",
-        element: <Users />,
-        children:[
-        {
-          path:":id",
-          element:<User/>
-        }
-        ]
+        element: <UserInfoOutlet />,
+        children: [
+          {
+            index: true,
+            element: <Users />,
+          },
+          {
+            path: ":id",
+            element: <User />,
+          },
+        ],
       },
       {
         path: "*",
