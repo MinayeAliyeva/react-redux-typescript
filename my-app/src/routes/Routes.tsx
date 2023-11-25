@@ -14,7 +14,6 @@ import UserInfoOutlet from "../Components/UsersInfoOutlet";
 // const obj = {
 //   index: 5,
 // };
-// let z = obj["index"];
 
 const routes: RouteObject[] = [
   {
@@ -22,7 +21,7 @@ const routes: RouteObject[] = [
     element: <App />,
     children: [
       {
-        path: "",
+        index: true,
         element: <Home />,
       },
       {
@@ -31,11 +30,32 @@ const routes: RouteObject[] = [
       },
       {
         path: "users",
-        element: <Users />,
-      },
-      {
-        path: "user/:id",
-        element: <User />,
+        element: <UserInfoOutlet />,
+        children: [
+          {
+            // dan sonra shash ne ise gelmir demekdi
+            index: true,
+            element: <Users />,
+          },
+          {
+            path: ":id",
+            element: <User />,
+            children: [
+              {
+                path: "*",
+                element: <div>Id error for user</div>,
+              },
+              {
+                path: ":minaya",
+                element: <div>Buldu Men Minaya</div>,
+              },
+            ],
+          },
+          {
+            path: "*",
+            element: <div>User not faund for users</div>,
+          },
+        ],
       },
       {
         path: "*",
@@ -47,3 +67,4 @@ const routes: RouteObject[] = [
 
 //createBrowserRouter iki parametr alir birincisi budu
 export const router = createBrowserRouter(routes);
+//users/1

@@ -9,20 +9,16 @@ const User = () => {
   const { id } = useParams();
   console.log(id);
   const courses = useSelector((state: any) => state.courses.data);
+  let exitingUser = courses.find((course: state) => course.id == id);
   return (
     <>
-      {courses
-        .filter((course: state) => course.id === id)
-        .map((course: state, index: number) => {
-          return (
-            <div key={index}>
-              <h1>{course.name}</h1>
-              <h1>{course.age}</h1>
-              <h1>{course.id}</h1>
-            </div>
-             
-          );
-        })}
+      {exitingUser ? (
+        <div>
+          <h1>{exitingUser.id}</h1>
+        </div>
+      ) : (
+        <h1>Bele {id} li user yoxdu</h1>
+      )}
     </>
   );
 };

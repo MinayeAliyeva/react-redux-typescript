@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import Users from "./Users";
 import { useState } from "react";
 import { addCourse } from "../store/slices/FormSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 //
 //
 const Home = () => {
@@ -81,7 +81,7 @@ const Home = () => {
           <Col></Col>
         </Row>
       </Container>
-      <Users />
+      {/* <Users /> */}
     </section>
   );
 };
