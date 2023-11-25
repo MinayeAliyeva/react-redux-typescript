@@ -7,6 +7,7 @@ const User = () => {
     id: string;
   }
   const { id } = useParams();
+  console.log(id);
   const courses = useSelector((state: any) => state.courses.data);
   return (
     <>

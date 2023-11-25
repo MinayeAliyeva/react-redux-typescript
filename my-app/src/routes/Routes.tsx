@@ -31,17 +31,11 @@ const routes: RouteObject[] = [
       },
       {
         path: "users",
-        element: <UserInfoOutlet />,
-        children: [
-          {
-            index: true,
-            element: <Users />,
-          },
-          {
-            path: ":id",
-            element: <User />,
-          },
-        ],
+        element: <Users />,
+      },
+      {
+        path: "user/:id",
+        element: <User />,
       },
       {
         path: "*",
